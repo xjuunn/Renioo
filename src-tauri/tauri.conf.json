@@ -16,7 +16,11 @@
         "width": 800,
         "height": 600,
         "resizable": true,
-        "fullscreen": false
+        "hiddenTitle": true,
+        "transparent": true,
+        "center": true,
+        "titleBarStyle": "Transparent",
+        "decorations": false
       }
     ],
     "security": {
