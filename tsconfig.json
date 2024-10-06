@@ -1,0 +1,21 @@
+//{
+//  // https://nuxt.com/docs/guide/concepts/typescript
+//  "extends": "./.nuxt/tsconfig.json"
+//}
+
+
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
