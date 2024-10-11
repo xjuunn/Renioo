@@ -1,11 +1,10 @@
 <template>
-  <div class="flex h-full overflow-hidden">
+  <div id="menubar" class="flex h-full overflow-hidden">
     <div ref="menuBar" class="h-screen border-r border-opacity-20 border-base-content overflow-hidden" data-tauri-drag-region>
       <MainMenuBar></MainMenuBar>
     </div>
     <div ref="mainContainer" class="flex flex-col flex-1 border-opacity-20 border-base-content">
-<!--      <div class="h-4" data-tauri-drag-region></div>-->
-      <div class="flex-1 ">
+      <div class="flex-1">
         <slot/>
       </div>
     </div>
@@ -19,5 +18,3 @@
     </div>
   </Teleport>
 </template>
-<script setup lang="ts">
-</script>

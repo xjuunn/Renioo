@@ -1,5 +1,5 @@
 <template>
-  <div class="hover:bg-base-300 h-16 flex items-center cursor-default">
+  <div class="hover:bg-base-300 flex items-center cursor-default" style="height:70px">
     <div class="avatar online ms-4">
       <div class="w-9 h-9 rounded-full">
         <img src="https://odmg.pages.dev/file/18c46734460af2a2c8d78.jpg" />

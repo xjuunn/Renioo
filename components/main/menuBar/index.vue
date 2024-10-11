@@ -3,7 +3,7 @@
 
     <div class="avatar">
       <div class="ring-primary ring-offset-base-100 w-7 rounded-full ring ring-offset-1">
-        <img src="https://odmg.pages.dev/file/18c46734460af2a2c8d78.jpg" alt="头像"/>
+        <img alt="头像" src="https://odmg.pages.dev/file/18c46734460af2a2c8d78.jpg"/>
       </div>
     </div>
     <ul class="menu mt-3 gap-1" data-tauri-drag-region>
@@ -33,10 +33,14 @@
         </a>
       </li>
     </ul>
-    <div class="flex-1 w-full" data-tauri-drag-region> </div>
+    <div class="flex-1 w-full" data-tauri-drag-region></div>
     <div class="flex flex-col items-center w-full p-2 gap-2" data-tauri-drag-region>
-      <button class="btn btn-ghost btn-md"><icon name="ph:microphone-bold" class="w-5 h-5"/></button>
-      <button class="btn btn-ghost btn-xs"><icon name="ri:more-fill" class="w-6 h-6 cursor-pointer opacity-70 hover:opacity-100"/></button>
+      <button class="btn btn-ghost btn-md">
+        <icon class="w-5 h-5" name="ph:microphone-bold"/>
+      </button>
+      <button class="btn btn-ghost btn-xs">
+        <icon class="w-6 h-6 cursor-pointer opacity-70 hover:opacity-100" name="ri:more-fill"/>
+      </button>
     </div>
   </div>
 </template>
