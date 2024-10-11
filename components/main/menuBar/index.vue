@@ -8,27 +8,27 @@
     </div>
     <ul class="menu mt-3 gap-1" data-tauri-drag-region>
       <li>
-        <a class="transition duration-300">
+        <a class="transition duration-100">
           <Icon class="w-6 h-6" name="ri:message-3-line"></Icon>
         </a>
       </li>
       <li>
-        <a class="transition duration-300">
+        <a class="transition duration-100">
           <Icon class="w-6 h-6" name="material-symbols:person-outline"></Icon>
         </a>
       </li>
       <li>
-        <a class="transition duration-300">
+        <a class="transition duration-100">
           <Icon class="w-6 h-6" name="tabler:stack"></Icon>
         </a>
       </li>
       <li>
-        <a class="transition duration-300">
+        <a class="transition duration-100">
           <Icon class="w-6 h-6" name="mdi:app-notification-outline"></Icon>
         </a>
       </li>
       <li>
-        <a class="transition duration-300">
+        <a class="transition duration-100">
           <Icon class="w-6 h-6" name="mingcute:device-line"></Icon>
         </a>
       </li>
