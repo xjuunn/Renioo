@@ -5,7 +5,7 @@
     </button>
     <textarea
         ref="textarea"
-        class="textarea resize-none textarea-ghost flex-1 h-full focus:border-none focus:outline-none max-h-36"
+        class="textarea resize-none textarea-ghost flex-1 h-full focus:border-none focus:outline-none focus:mt-0.5 max-h-36"
         placeholder="输入消息 . . ."
     ></textarea>
     <button class="btn btn-ghost btn-square btn-md hover:bg-base-100 opacity-70 hover:opacity-100">
@@ -16,3 +16,8 @@
     </button>
   </div>
 </template>
+<script setup lang="ts">
+  function test(){
+    navigateTo('/test')
+  }
+</script>

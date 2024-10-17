@@ -2,7 +2,10 @@
 export default defineNuxtConfig({
     compatibilityDate: '2024-04-03',
     devtools: {enabled: false},
-    // ssr: () => window.__TAURI_INTERNALS__ === undefined,
+    imports:{
+        dirs:['types/**'],
+        global:true
+    },
     ssr: false,
     routeRules: {
         '/': {prerender: true}

@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="h-full flex-1 pt-3 ps-3 flex flex-col">
-      <b class="text-sm">Junhsiun</b>
+      <b class="text-sm line-clamp-1 break-all">Junhsiun</b>
       <span class="w-full text-xs opacity-70 mt-1 line-clamp-1">噫嘘唏，危呼高哉!蜀道之难，难于上青天！</span>
     </div>
     <div class="flex flex-col text-xs items-start h-full pt-3 me-3">

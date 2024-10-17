@@ -9,12 +9,18 @@
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build"
   },
+  "plugins": {
+    "deep-link": {
+
+    }
+  },
   "app": {
     "windows": [
       {
         "title": "Renioo",
         "width": 800,
         "height": 600,
+        "url": "/check",
         "resizable": true,
         "hiddenTitle": true,
         "transparent": true,

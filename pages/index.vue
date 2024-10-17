@@ -56,6 +56,4 @@ function resizeChatList() {
     chatListRef.value.style.width = w + 'px';
   })
 }
-
-
 </script>

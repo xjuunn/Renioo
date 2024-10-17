@@ -16,6 +16,19 @@
     "core:event:allow-listen",
     "core:event:allow-unlisten",
     "core:event:allow-emit-to",
-    "core:event:allow-emit"
+    "core:event:allow-emit",
+    "deep-link:allow-get-current",
+    "deep-link:default",
+    "deep-link:allow-register",
+    "deep-link:allow-unregister",
+    "core:window:allow-set-size",
+    "core:window:allow-set-position",
+    "core:app:allow-set-app-theme",
+    "core:tray:allow-set-visible",
+    "core:window:allow-set-maximizable",
+    "core:window:allow-set-minimizable",
+    "core:window:allow-set-fullscreen",
+    "core:window:allow-set-resizable",
+    "core:window:allow-set-min-size"
   ]
 }
