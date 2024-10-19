@@ -69,8 +69,6 @@ async function verify() {
     return;
   }
   clearInterval(resendTimeout);
-  const {setLogged} = useUserStore();
-  setLogged(true);
   navigateTo('/check');
 }
 

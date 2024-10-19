@@ -16,8 +16,28 @@
     </button>
   </div>
 </template>
-<script setup lang="ts">
-  function test(){
-    navigateTo('/test')
-  }
+<script lang="ts" setup>
+import {UserPublic} from "../../../types/User/UserPublic";
+
+const supabase = useSupabaseClient();
+
+async function test() {
+
+  // const {data, error} = await supabase
+  //     .from('user')
+  //     .upsert({some_column: 'someValue'})
+  //     .select()
+  //
+  // console.log(data,error)
+
+  const {data,error} = await supabase.auth.getUser();
+  let id = data.user?.id;
+  if (!id) throw "用户ID为空";
+  let userPublic:UserPublic = {
+    id,name:id,last_sign:data.user?.last_sign_in_at,peer_id:id,public_key:"123",
+  };
+  const result = await supabase.from('user').upsert(userPublic).select();
+  console.log(result);
+
+}
 </script>

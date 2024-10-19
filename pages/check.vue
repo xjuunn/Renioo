@@ -15,8 +15,7 @@ const print = ref('Loading . . .');
 onMounted(async () => {
   window = getCurrentWindow();
   initConfig();
-  const data = await check(msg => print.value = msg);
-
+  await check(msg => print.value = msg);
 })
 
 function initConfig() {

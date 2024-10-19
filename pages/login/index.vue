@@ -26,6 +26,11 @@
     </div>
     <div class="divider me-16 ms-16" data-tauri-drag-region>OR</div>
     <div class="w-full flex items-center justify-center flex-row" data-tauri-drag-region>
+      <div class="tooltip tooltip-bottom" data-tip="使用密码登录">
+        <NuxtLink to="/login/loginWithPassword" class="btn btn-ghost btn-circle">
+          <icon class="text-2xl" name="fluent:password-24-regular"/>
+        </NuxtLink>
+      </div>
       <div class="tooltip tooltip-bottom" data-tip="离线">
         <button class="btn btn-ghost btn-circle">
           <icon class="text-2xl" name="ant-design:disconnect-outlined"/>
