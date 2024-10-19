@@ -15,7 +15,6 @@ export default function useCheckStatus() {
             navigateTo("/login/addPassword"); // 设置密码
             return;
         }
-        // logged(); // 设置登录状态为true
         pass();  // 检查通过
         return 'ok';
     }
@@ -24,11 +23,6 @@ export default function useCheckStatus() {
         const {data, error} = await supabase.from('user').select("*").eq('id', user.id);
         if (error) throw error;
         return !data?.length > 0;
-    }
-
-    function logged() {
-        const {setLogged} = useUserStore();
-        setLogged(true);
     }
 
     async function pass() {

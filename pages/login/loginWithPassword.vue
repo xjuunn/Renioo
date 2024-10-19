@@ -51,16 +51,25 @@ async function login() {
   isloading.value = true;
   const {error} = await supabase.auth.signInWithPassword({
     email: email.value,
-    password: pass.value
+    password: await hashPassword(pass.value)
   })
   isloading.value = false;
   if (error) {
     print.value = error.message;
     return;
   }
+  const {setLogged} = useUserStore();
+  setLogged(true);
   navigateTo("/check");
 }
-
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await window.crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  return hashHex;
+}
 </script>
 
 <style scoped>

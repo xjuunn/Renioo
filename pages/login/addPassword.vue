@@ -46,9 +46,10 @@ async function next(){
     print.value = "两次密码输入不一致";
     return;
   }
+
   isloading.value = true;
-  const {data,error} = await supabase.auth.updateUser({
-    password:pass1.value
+  const {error} = await supabase.auth.updateUser({
+    password:await hashPassword(pass1.value)
   })
   isloading.value = false;
   if (error) {
@@ -57,6 +58,14 @@ async function next(){
   }
   navigateTo("/login/setUsername")
 
+}
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await window.crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  return hashHex;
 }
 </script>
 <style scoped>
