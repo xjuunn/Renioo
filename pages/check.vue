@@ -7,14 +7,16 @@
 
 <script lang="ts" setup>
 import {getCurrentWindow, LogicalSize} from '@tauri-apps/api/window'
-
+const {isTauriDesktop} = useAppStore();
 let {check} = useCheckStatus();
 definePageMeta({layout: 'clean-layout'})
 let window;
 const print = ref('Loading . . .');
 onMounted(async () => {
-  window = getCurrentWindow();
-  initConfig();
+  if (isTauriDesktop){
+    window = getCurrentWindow();
+    initConfig();
+  }
   await check(msg => print.value = msg);
 })
 

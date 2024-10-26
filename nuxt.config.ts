@@ -2,14 +2,17 @@
 export default defineNuxtConfig({
     compatibilityDate: '2024-04-03',
     devtools: {enabled: false},
-    imports:{
-        dirs:['types/**'],
-        global:true
+    imports: {
+        dirs: ['./components/**', "./composables/**", "./layouts/**", "./middleware/**",
+            "./modules/**", "./pages/**", "./plugins/**", "./types/**/*",
+            "./utils/**"],
+        global: true
     },
     ssr: false,
     routeRules: {
         '/': {prerender: true}
     },
+    plugins:['~/plugins/dexie.ts'],
     modules: [
         '@nuxtjs/device',
         '@pinia/nuxt',
@@ -28,7 +31,7 @@ export default defineNuxtConfig({
     supabase: {
         redirectOptions: {
             login: '/login',
-            exclude: ['/','/*','/**/*'],
+            exclude: ['/', '/*', '/**/*'],
         }
     },
 })

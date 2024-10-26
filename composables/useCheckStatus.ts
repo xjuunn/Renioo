@@ -15,9 +15,11 @@ export default function useCheckStatus() {
             navigateTo("/login/addPassword"); // 设置密码
             return;
         }
+        usePeerStore();
         pass();  // 检查通过
         return 'ok';
     }
+
 
     async function checkFirst(user) {
         const {data, error} = await supabase.from('user').select("*").eq('id', user.id);
@@ -26,13 +28,15 @@ export default function useCheckStatus() {
     }
 
     async function pass() {
-        const window = getCurrentWindow()
-        await window.setSize(new LogicalSize(900, 600));
-        await window.setMinSize(new LogicalSize(700, 500))
-        await window.setMinimizable(true);
-        await window.setMaximizable(true);
-        await window.setFullscreen(false);
-        await window.setResizable(true);
+        if (useAppStore().isTauriDesktop) {
+            const window = getCurrentWindow()
+            await window.setSize(new LogicalSize(900, 600));
+            await window.setMinSize(new LogicalSize(700, 500))
+            await window.setMinimizable(true);
+            await window.setMaximizable(true);
+            await window.setFullscreen(false);
+            await window.setResizable(true);
+        }
         navigateTo("/");
     }
 

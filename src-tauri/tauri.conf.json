@@ -18,8 +18,8 @@
     "windows": [
       {
         "title": "Renioo",
-        "width": 800,
-        "height": 600,
+        "width": 500,
+        "height": 400,
         "url": "/check",
         "resizable": true,
         "hiddenTitle": true,

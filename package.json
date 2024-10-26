@@ -22,6 +22,7 @@
     "@tauri-apps/plugin-os": "^2.0.0",
     "@vueuse/nuxt": "^11.1.0",
     "axios": "^1.7.7",
+    "dexie": "^4.0.8",
     "markdown-it": "^14.1.0",
     "nuxt": "^3.13.0",
     "peerjs": "^1.5.4",

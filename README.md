@@ -14,3 +14,4 @@
 * markdown-it
 * peerjs
 * axios
+* dexie
