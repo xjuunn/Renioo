@@ -22,9 +22,34 @@
 </template>
 
 <script setup lang="ts">
+import {UserManager} from "../../../utils/users/UserManager";
+import User from "../../../types/User/User";
+
 const {getChatUser} = useAppStore();
-watch(getChatUser,(v1,v2)=>{
+watch(getChatUser,async (v1,v2)=>{
   if (v1.id === v2.id) return;
-  console.log("获取消息记录",v1.id,v2.id)
+  await getUser(v1);
+  // saveUser(v1);
 })
+async function getUser(v1){
+  const peerConnectManager = new PeerConnectManager();
+  await peerConnectManager.connectByUserID(v1.id);
+  const user = peerConnectManager.getConnectionByID(v1.id);
+  console.log(user)
+  // console.log("获取连接对象：",)
+  // const err = await peerConnectManager.connect(v1)
+  // console.log(2)
+  // console.log("获取",peerConnectManager.getConnectionByPeerID(v1.peer_id),err)
+}
+function saveUser(user){
+  const userManager = new UserManager();
+  userManager.saveUser({
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    avatar: user.avatar,
+    last_sign: user.last_sign,
+    peer_id: user.peer_id,
+  });
+}
 </script>

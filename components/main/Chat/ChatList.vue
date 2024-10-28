@@ -3,7 +3,7 @@
                     @click="openChat(item)"/>
   <span v-if="searchList.length>0" class="font-deyi text-sm ms-4">网络用户</span>
   <UserSearchListItem v-for="(item,index) in searchList" :id="item.id" :key="index" :avatar="item.avatar"
-                      :name="item.name" @click="openChat(item.id)"/>
+                      :name="item.name" @click="openChat(item)"/>
 </template>
 
 <script lang="ts" setup>

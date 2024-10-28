@@ -4,13 +4,9 @@
   </div>
 </template>
 <script lang="ts" setup>
-import PeerConnectManager from "../utils/peer/PeerConnectManager";
 
 async function test(){
- // const peerConnectManager = new PeerConnectManager();
- //  console.log(peerConnectManager.connect('test'))
-  const {peer} = usePeerStore();
-  console.log((await peer).id);
+
 
 }
 </script>
