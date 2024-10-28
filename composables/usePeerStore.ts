@@ -1,19 +1,39 @@
-import Peer from "peerjs"
+import PeerInit from "../utils/peer/PeerInit";
+import Peer from "peerjs";
+
 export const usePeerStore = defineStore('peer', () => {
-    const supabase = useSupabaseClient()
-    let peer = new Peer();
-    peer.on("open", async (id) => {
-        const {data: user, error} = await supabase.auth.getUser();
-        const {error: metadataError} = await supabase.auth.updateUser({data: {peer_id: id,}})  // 更新metadata
-        if (metadataError) throw metadataError;
-        const {
-            data,
-            error: userError
-        } = await supabase.from('user').update({'peer_id': id}).eq('id', user.user?.id).select();
-        if (userError) throw userError;
+    let _peerState:Ref<'Initializing'|'ok'|'error'|'null'> = ref('null')
+    let _peer = async () => {
+        _peerState.value = 'Initializing';
+        const {peer, error} = await new PeerInit().init();
+        if (error) {
+            _peerState.value = 'error';
+            throw error
+        }
+        _peer = peer;
+        _peerState.value = 'ok';
+    }
+    const peer = computed(async ():Peer => {
+        if (typeof _peer === 'function') await _peer();
+        return _peer;
     })
-    peer.on("error", error => {throw error});
+    const peerStatus = computed(():'Initializing'|'ok'|'error'|'null' => _peerState.value)
     return {
-        peer
+        peer,peerStatus
     }
 })
+
+
+// let peer: Ref<Peer> = ref({});
+// let peerState: Ref<'ok' | 'error' | 'Initializing' | 'null'> = ref('Initializing');
+// new PeerInit().init().then(value => {
+//     peer.value = value.peer
+//     peerState.value = 'ok';
+// }).catch(error => {
+//     console.log(error)
+//     peerState.value = 'error';
+// });
+// const getPeer = computed(() => peer.value);
+// return {
+//     peer, getPeer, peerState
+// }

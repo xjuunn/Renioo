@@ -15,7 +15,8 @@ export default function useCheckStatus() {
             navigateTo("/login/addPassword"); // 设置密码
             return;
         }
-        usePeerStore();
+        const {peer,peerStatus} = usePeerStore();
+        if (peerStatus !=='ok') await peer
         pass();  // 检查通过
         return 'ok';
     }

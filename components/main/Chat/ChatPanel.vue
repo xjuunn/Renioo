@@ -2,7 +2,7 @@
   <div class="flex flex-col h-full">
     <div class="pt-3 h-14 flex items-center ps-3 pe-20 border-b border-opacity-10 border-base-content"
          data-tauri-drag-region>
-      <b class="cursor-default" data-tauri-drag-region>Junhsiun</b>
+      <b class="cursor-default" data-tauri-drag-region>{{getChatUser().name}}</b>
       <div class="m-2 text-xs opacity-70 mt-3 text-green-500 cursor-default" data-tauri-drag-region>在线</div>
       <div class="flex-1 h-full flex justify-items-end items-end pb-2" data-tauri-drag-region>
         <div class="flex-1" data-tauri-drag-region></div>
@@ -20,3 +20,11 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const {getChatUser} = useAppStore();
+watch(getChatUser,(v1,v2)=>{
+  if (v1.id === v2.id) return;
+  console.log("获取消息记录",v1.id,v2.id)
+})
+</script>
