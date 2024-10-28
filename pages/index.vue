@@ -1,12 +1,12 @@
 <template>
   <div class="flex h-screen">
-    <div ref="chatListRef" class="relative border-opacity-20 border-base-content border-r flex flex-col"
+    <div ref="chatListRef" class="relative border-opacity-20 border-base-content border-r flex flex-col z-50"
          style="width: 230px">
       <div class="p-2">
         <div class="font-deyi ms-3 pt-3 text-lg cursor-default" data-tauri-drag-region>私 信</div>
-        <label class="input input-sm bg-base-200 border-none w-full flex items-center gap-2 mt-3 rounded-sm">
+        <label class="input input-sm bg-base-200 border-none w-full flex items-center gap-2 mt-3 rounded-sm relative">
           <input v-model="searchValue" class="grow" placeholder="搜索" type="search" @keyup.enter="search"/>
-          <button class="btn btn-sm btn-square" @click="search">
+          <button class="btn btn-sm btn-square absolute right-0" @click="search">
             <svg
                 class="h-4 w-4 opacity-70"
                 fill="currentColor"
@@ -72,7 +72,7 @@ function resizeChatList() {
   document.addEventListener("mousemove", (e) => {
     if (!isMouseDown) return;
     let w = e.x - (resizeRef.value.getBoundingClientRect().right - resizeRef.value.offsetLeft) + 5;
-    if (w > 350) w = 350;
+    if (w > 300) w = 300;
     if (w < 200) w = 200;
     chatListRef.value.style.width = w + 'px';
   })
