@@ -1,3 +1,4 @@
+import User from "../types/User/User";
 
 export const useUserStore = defineStore('user', () => {
     const supabase = useSupabaseClient();
@@ -12,10 +13,10 @@ export const useUserStore = defineStore('user', () => {
             const user = data.session.user
             let id = user.id
             if (!id) throw "用户ID为空";
-            let user: User = {
-                id, name: user.user_metadata.username, last_sign: user.last_sign_in_at,peer_id:'', public_key: "1235",
+            let user1: User = {
+                id, name: user.user_metadata.username, last_sign: user.last_sign_in_at, peer_id: '', public_key: "1235",
             };
-            const {error:error1} = await supabase.from('user').upsert(user).select();
+            const {error: error1} = await supabase.from('user').upsert(user1).select();
             if (error1) throw error;
         }
 
